@@ -11,8 +11,11 @@ app.get('/greetings/:name', (req, res) => {
 })
 
 app.get('/tip/:total/:tipPercentage', (req, res) => {
-    res.send(`${req.params.total} and ${req.params.tipPercentage}`)
+    let tip = req.params.total * req.params.tipPercentage * 0.01
+    res.send(`Based on a total of $${req.params.total} an a tip prcentage of ${req.params.tipPercentage}%, the tip will be $${tip}.`)
 })
+
+
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
