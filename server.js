@@ -21,6 +21,32 @@ app.get('/magic/:message', (req, res) => {
     res.send(`<h1>${req.params.message}?<br>${responses[randomResponse]}</h1>`)
 })
 
+app.get('/fibonacci/:number', (req, res) => {
+    let fibSequence = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
+    let number = parseInt(req.params.number)
+    let goldenRatio = (1 + Math.sqrt(5)) / 2 
+    
+    if (number <= 4181) {
+        if(fibSequence.includes(number)){
+            res.send(`Very good.<br>${number} is Fibonacci.`)
+        } else {
+            res.send(`I can tell ${number} is not a fibonacci number.`)
+        }
+    } else {
+        let quotient = number / goldenRatio
+
+        if (quotient !== 0 && number > 4181){
+
+        }
+        
+        for(let i = 0;)
+        res.send('bigger than 4181 case')
+
+        
+    }
+    
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
